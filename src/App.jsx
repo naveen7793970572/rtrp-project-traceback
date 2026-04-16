@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { AuthProvider } from './context/AuthContext'
 import { ThemeProvider } from './context/ThemeContext'
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <BrowserRouter>
+        <HashRouter>
         <Navbar />
         <main>
           <Routes>
@@ -37,7 +37,7 @@ export default function App() {
             style: { background: '#1e1e2e', color: '#cdd6f4', border: '1px solid #313244' },
           }}
         />
-      </BrowserRouter>
+      </HashRouter>
       </AuthProvider>
     </ThemeProvider>
   )
