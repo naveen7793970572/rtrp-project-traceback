@@ -182,7 +182,7 @@ body::before {
   margin-left: auto;
 }
 
-.karma-badge {
+.tracepoints-badge {
   font-size: 0.8rem;
   font-weight: 800;
   color: #b45309;
@@ -864,7 +864,7 @@ main {
   color: var(--primary-hover);
 }
 
-.karma-cta {
+.tracepoints-cta {
   background: var(--surface);
   backdrop-filter: var(--blur);
   border: 1px solid rgba(255, 255, 255, 0.8);
@@ -874,7 +874,7 @@ main {
   position: relative;
 }
 
-.karma-cta::after {
+.tracepoints-cta::after {
   content: '';
   position: absolute;
   top: 0;
@@ -884,7 +884,7 @@ main {
   background: linear-gradient(90deg, #f59e0b, #fbbf24, #fcd34d);
 }
 
-.karma-cta-inner {
+.tracepoints-cta-inner {
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -892,23 +892,23 @@ main {
   flex-wrap: wrap;
 }
 
-.karma-cta-icon {
+.tracepoints-cta-icon {
   font-size: 2.8rem;
   flex-shrink: 0;
   filter: drop-shadow(0 4px 8px rgba(245, 158, 11, 0.3));
 }
 
-.karma-cta-inner>div {
+.tracepoints-cta-inner>div {
   flex: 1;
   min-width: 200px;
 }
 
-.karma-cta-inner h3 {
+.tracepoints-cta-inner h3 {
   font-size: 1.2rem;
   font-weight: 800;
 }
 
-.karma-cta-inner p {
+.tracepoints-cta-inner p {
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--text-muted);
@@ -1450,7 +1450,7 @@ main {
   margin-top: 0.15rem;
 }
 
-.karma-display {
+.tracepoints-display {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1463,12 +1463,12 @@ main {
   max-width: 250px;
 }
 
-.karma-star {
+.tracepoints-star {
   font-size: 1.8rem;
   filter: drop-shadow(0 2px 4px rgba(245, 158, 11, 0.3));
 }
 
-.karma-value {
+.tracepoints-value {
   font-size: 2.5rem;
   font-weight: 900;
   color: #b45309;
@@ -1476,7 +1476,7 @@ main {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.karma-label {
+.tracepoints-label {
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;

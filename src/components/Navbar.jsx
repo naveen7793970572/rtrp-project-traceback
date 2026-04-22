@@ -49,7 +49,7 @@ export default function Navbar() {
             <button onClick={toggleTheme} className="btn btn-ghost btn-sm" style={{ padding: '0.45rem', borderRadius: '50%', width: '36px', height: '36px' }} title="Toggle Theme">
               {theme === 'dark' ? '☀️' : '🌙'}
             </button>
-            <span className="karma-badge" title="Karma Points">⭐ {userProfile?.karma ?? 0}</span>
+            <span className="tracepoints-badge" title="TracePoints">⭐ {userProfile?.tracePoints ?? 0}</span>
             <Link to="/profile" className="nav-avatar" title={currentUser.displayName}>
               {currentUser.displayName?.[0]?.toUpperCase() ?? '?'}
             </Link>
@@ -61,7 +61,7 @@ export default function Navbar() {
             <button onClick={toggleTheme} className="btn btn-ghost btn-sm" style={{ padding: '0.45rem', borderRadius: '50%', width: '36px', height: '36px' }}>
               {theme === 'dark' ? '☀️' : '🌙'}
             </button>
-            <span className="karma-badge">⭐ {userProfile?.karma ?? 0}</span>
+            <span className="tracepoints-badge">⭐ {userProfile?.tracePoints ?? 0}</span>
             <button
               className="hamburger"
               onClick={() => setMenuOpen(o => !o)}

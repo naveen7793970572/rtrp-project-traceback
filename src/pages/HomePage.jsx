@@ -92,13 +92,13 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* CTA for karma */}
+      {/* CTA for TracePoints */}
       {userProfile && (
-        <section className="karma-cta glass">
-          <div className="karma-cta-inner">
-            <span className="karma-cta-icon">⭐</span>
+        <section className="tracepoints-cta glass">
+          <div className="tracepoints-cta-inner">
+            <span className="tracepoints-cta-icon">⭐</span>
             <div>
-              <h3>Your Karma: <span className="gradient-text">{userProfile.karma} pts</span></h3>
+              <h3>Your TracePoints: <span className="gradient-text">{userProfile.tracePoints} pts</span></h3>
               <p>Earn +10 by reporting a found item. Every good deed counts!</p>
             </div>
             <Link to="/report?type=found" className="btn btn-primary">Report Found Item</Link>
@@ -114,7 +114,7 @@ export default function HomePage() {
             { icon: '📸', step: '1', title: 'Report', desc: 'Post a found item with a photo, or describe what you lost.' },
             { icon: '🤖', step: '2', title: 'AI Matches', desc: 'Our image AI compares your report against all active listings.' },
             { icon: '💬', step: '3', title: 'Chat & Claim', desc: 'Once a match is accepted, a private chat opens to arrange return.' },
-            { icon: '⭐', step: '4', title: 'Earn Karma', desc: 'Get karma points for helping others find their belongings.' },
+            { icon: '⭐', step: '4', title: 'Earn TracePoints', desc: 'Get TracePoints for helping others find their belongings.' },
           ].map(s => (
             <div key={s.step} className="step-card glass">
               <div className="step-icon">{s.icon}</div>

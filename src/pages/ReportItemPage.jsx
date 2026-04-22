@@ -140,14 +140,14 @@ export default function ReportItemPage() {
             try {
                 await updateDoc(doc(db, 'users', currentUser.uid), { itemsReported: increment(1) })
                 if (type === 'found') {
-                    await updateDoc(doc(db, 'users', currentUser.uid), { karma: increment(10) })
+                    await updateDoc(doc(db, 'users', currentUser.uid), { tracePoints: increment(10) })
                 }
             } catch (profileErr) {
                 console.warn('User profile update skipped:', profileErr.code, profileErr.message)
             }
 
             if (type === 'found') {
-                toast.success('+10 karma for reporting a found item! 🌟')
+                toast.success('+10 TracePoints for reporting a found item! 🌟')
             } else {
                 toast.success('Lost item reported!')
             }

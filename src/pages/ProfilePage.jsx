@@ -97,10 +97,10 @@ export default function ProfilePage() {
                     <h2>{userProfile.name}</h2>
                     <p>{userProfile.email}</p>
                 </div>
-                <div className="karma-display">
-                    <span className="karma-star">⭐</span>
-                    <span className="karma-value">{userProfile.karma}</span>
-                    <span className="karma-label">Karma Points</span>
+                <div className="tracepoints-display">
+                    <span className="tracepoints-star">⭐</span>
+                    <span className="tracepoints-value">{userProfile.tracePoints}</span>
+                    <span className="tracepoints-label">TracePoints</span>
                 </div>
                 <div className="stats-row">
                     <div className="stat-item">

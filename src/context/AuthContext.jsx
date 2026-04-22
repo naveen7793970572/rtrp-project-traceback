@@ -10,7 +10,7 @@ import {
   sendPasswordResetEmail,
   updatePassword,
 } from 'firebase/auth'
-import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore'
+import { doc, setDoc, getDoc, updateDoc, serverTimestamp, deleteField } from 'firebase/firestore'
 import { auth, db, googleProvider } from '../services/firebase'
 
 const AuthContext = createContext(null)
@@ -40,7 +40,7 @@ export function AuthProvider({ children }) {
         uid: user.uid,
         name: user.displayName ?? user.email.split('@')[0],
         email: user.email,
-        karma: 0,
+        tracePoints: 0,
         itemsReported: 0,
         itemsResolved: 0,
         createdAt: serverTimestamp(),
@@ -109,8 +109,29 @@ export function AuthProvider({ children }) {
   }
 
   async function fetchProfile(uid) {
-    const snap = await getDoc(doc(db, 'users', uid))
-    if (snap.exists()) setUserProfile(snap.data())
+    const ref = doc(db, 'users', uid)
+    const snap = await getDoc(ref)
+    if (snap.exists()) {
+      const data = snap.data()
+      
+      // Fallback & Lazy Migration: if tracePoints is missing but legacy karma exists
+      if (data.tracePoints === undefined && data.karma !== undefined) {
+        const legacyPoints = data.karma || 0
+        try {
+          await updateDoc(ref, { 
+            tracePoints: legacyPoints,
+            karma: deleteField() 
+          })
+          setUserProfile({ ...data, tracePoints: legacyPoints })
+        } catch (err) {
+          console.error("Migration failed:", err)
+          // Fallback in UI state even if update fails
+          setUserProfile({ ...data, tracePoints: legacyPoints })
+        }
+      } else {
+        setUserProfile(data)
+      }
+    }
   }
 
   useEffect(() => {

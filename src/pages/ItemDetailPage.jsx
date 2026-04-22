@@ -4,7 +4,7 @@ import { doc, getDoc, collection, query, where, getDocs, addDoc, updateDoc, dele
 import { db } from '../services/firebase'
 import { useAuth } from '../context/AuthContext'
 import { findMatches } from '../services/matchingService'
-import { awardKarma } from '../services/karmaService'
+import { awardTracePoints } from '../services/tracePointsService'
 import { ensureChat, getChatId } from '../services/chatService'
 import toast from 'react-hot-toast'
 
@@ -124,13 +124,13 @@ export default function ItemDetailPage() {
             // Step 3: Update item status to 'claimed' (NOT 'returned'!)
             await updateDoc(doc(db, 'items', id), { status: 'claimed' })
 
-            // Step 4: Award karma — best effort
+            // Step 4: Award TracePoints — best effort
             try {
-                await awardKarma(item.reportedBy, 5)
-                await awardKarma(claim.claimantId, 5)
-                toast.success('Claim approved! Chat room opened. +5 karma each 🌟')
-            } catch (karmaErr) {
-                console.warn('Karma award skipped:', karmaErr.code)
+                await awardTracePoints(item.reportedBy, 5)
+                await awardTracePoints(claim.claimantId, 5)
+                toast.success('Claim approved! Chat room opened. +5 TracePoints each 🌟')
+            } catch (tpErr) {
+                console.warn('TracePoints award skipped:', tpErr.code)
                 toast.success('Claim approved! Chat room opened.')
             }
 
