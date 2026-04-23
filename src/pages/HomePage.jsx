@@ -25,7 +25,7 @@ export default function HomePage() {
 
       const validFound = allItems.filter(i => i.type === 'found' && (i.status === 'Found' || i.status === 'claimed') && i.expiresAt?.toMillis() > now.toMillis())
       validFound.sort((a, b) => (b.createdAt?.toMillis() || 0) - (a.createdAt?.toMillis() || 0))
-      
+
       const validLost = allItems.filter(i => i.type === 'lost' && (i.status === 'open' || i.status === 'claimed') && i.expiresAt?.toMillis() > now.toMillis())
       validLost.sort((a, b) => (b.createdAt?.toMillis() || 0) - (a.createdAt?.toMillis() || 0))
 
@@ -56,7 +56,7 @@ export default function HomePage() {
             <span className="gradient-text">We'll help you find it.</span>
           </h1>
           <p className="hero-sub">
-            AI-powered matching connects lost items with what's been found on campus. 
+            AI-powered matching connects lost items with what's been found on campus.
             Fast, private, and completely free.
           </p>
           <div className="hero-actions">
@@ -112,7 +112,7 @@ export default function HomePage() {
         <div className="steps-grid">
           {[
             { icon: '📸', step: '1', title: 'Report', desc: 'Post a found item with a photo, or describe what you lost.' },
-            { icon: '🤖', step: '2', title: 'AI Matches', desc: 'Our image AI compares your report against all active listings.' },
+            { icon: '🤖', step: '2', title: 'Matches', desc: 'Compares your report against all active listings.' },
             { icon: '💬', step: '3', title: 'Chat & Claim', desc: 'Once a match is accepted, a private chat opens to arrange return.' },
             { icon: '⭐', step: '4', title: 'Earn TracePoints', desc: 'Get TracePoints for helping others find their belongings.' },
           ].map(s => (

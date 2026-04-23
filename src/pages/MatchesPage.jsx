@@ -59,8 +59,8 @@ export default function MatchesPage() {
   return (
     <div className="page-container">
       <div className="matches-page-header">
-        <h2>🤖 AI Match Suggestions</h2>
-        <p className="text-muted">Select one of your open items to see potential matches found by image AI.</p>
+        <h2>🤖 Match Suggestions</h2>
+        <p className="text-muted">Select one of your open items to see potential matches found by the system.</p>
       </div>
 
       {myItems.length === 0 ? (
